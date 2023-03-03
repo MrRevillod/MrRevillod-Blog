@@ -6,121 +6,106 @@ imgUrl: 'http://pillan.inf.uct.cl/~lrevillod/img/About/assets/LAMP-STACK.png'
 
 ---
 
-## Instalar LAMP stack en Archlinux (Apache - MariaDB - PHP)
+# Instalar LAMP stack en Archlinux (Apache - MariaDB - PHP)
 
-#### Instalar Servidor Apache
+## Instalar Servidor Apache
 
 <CodeBox text='sudo pacman -S apache ' />
 
 
-#### Activar e iniciar servicio
+### Activar e iniciar servicio
 
- 
 <CodeBox text='sudo systemctl start httpd ' />
 <CodeBox text='sudo systemctl enable httpd' />
 <CodeBox text='sudo systemctl status httpd' />
 
 
-#### Instalar Lenguaje de programación PHP
-
+## Instalar Lenguaje de programación PHP
 
 <CodeBox text='sudo pacman -S php php-apache' />
 
 
-#### Instalar Servicio de Bases de datos MySQL / MariaDB
-
+## Instalar Servicio de Bases de datos MySQL / MariaDB
 
 <CodeBox text='sudo pacman -S mysql' />
 
 
-#### Activar e iniciar servicio
+### Activar e iniciar servicio
 
- 
 <CodeBox text='sudo systemctl start mysqld ' />
 <CodeBox text='sudo systemctl enable mysqld' />
 <CodeBox text='sudo systemctl status mysqld' />
 
 
-#### Por cualquier error en MariaDB ejecutar los siguentes comandos como superusuario
+### Por cualquier error en MariaDB ejecutar los siguentes comandos como superusuario
 
+<CodeBox text='cd /var/lib/mysql' />
+<CodeBox text='rm -r *' />
+<CodeBox text='mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql' />
 
-# cd /var/lib/mysql
-# rm -r *
-# mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 
 <CodeBox text='sudo systemctl restart mysqld' />
 <CodeBox text='sudo systemctl enable mysqld' />
 <CodeBox text='sudo systemctl status mysqld' />
 
 
-#### Configuración segura de MariaDB
-
+### Configuración segura de MariaDB
 
 <CodeBox text='sudo mysql_secure_installation' />
 <CodeBox text='mysql -u root -p' />
 
 
-#### Configurar Servidor Apache con MariaDB y PHP
+### Configurar Servidor Apache con MariaDB y PHP
 
 <CodeBox text='sudo nano /etc/httpd/conf/httpd.conf' />
 
 Descomentar las linea:
 
-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
-
+<CodeBox text='LoadModule mpm_prefork_module modules/mod_mpm_prefork.so' />
 
 Comentar la linea 
  
-LoadModule mpm_event_module modules/mod_mpm_event.so
-
+<CodeBox text='LoadModule mpm_event_module modules/mod_mpm_event.so' />
 
 Añadir el siguente bloque de texto al final del archivo
 
-LoadModule php_module modules/libphp.so
-AddHandler php-script php
-Include conf/extra/php_module.conf
+<CodeBox text='LoadModule php_module modules/libphp.so' />
+<CodeBox text='AddHandler php-script php' />
+<CodeBox text='Include conf/extra/php_module.conf' />
 
 
-#### Reiniciar Servidor Apache 
+### Reiniciar Servidor Apache 
 
 <CodeBox text='sudo systemctl restart httpd' />
 
 
-#### Testear estado del servidor mediante phpinfo();
+### Testear estado del servidor mediante phpinfo();
 
 Crear archivo php mediante editor nano
 
-
 <CodeBox text='sudo nano /srv/http/test.php' />
 
+### Agregar el siguente código php en el archivo
 
-Agregar el siguente código php en el archivo
-```
-<?php
-phpinfo()
-?>
-```
+<CodeBox text='<?php phpinfo() ?>' />
 
 Probar estado del servidor accediendo a localhost/test.php
 
-#### Instalación de gestor de bases de datos phpMyAdmin
-
+### Instalación de gestor de bases de datos phpMyAdmin
 
 <CodeBox text='sudo pacman -S phpmyadmin' />
 
-
-#### Actualizar configuracion de PHP y sus extensiones
+### Actualizar configuracion de PHP y sus extensiones
 Descomentar las opciones: **extension=mysqld** y **extension=pdo_mysql**
 
 
 <CodeBox text='sudo nano /etc/php/php.ini' />
  
-
-#### Crear archivo de configuración de phpMyAdmin
-Añadir el texto en el archivo
-
+### Crear archivo de configuración de phpMyAdmin
 
 <CodeBox text='sudo nano /etc/httpd/conf/extra/phpmyadmin.conf' />
+
+Añadir el texto en el archivo
 
 ```
 
@@ -135,17 +120,14 @@ Alias /phpmyadmin "/usr/share/webapps/phpMyAdmin"
 
 ```
 
-#### Actualizar configuración de Apache
-Añadir el texto al final del archivo
-
-
+### Actualizar configuración de Apache
 <CodeBox text='sudo nano /etc/httpd/conf/httpd.conf' />
---------------------------------------
-Include conf/extra/phpmyadmin.conf
---------------------------------------
+
+Añadir el texto al final del archivo
+<CodeBox text='Include conf/extra/phpmyadmin.conf' />
+
 Reiniciar Apache
+
 <CodeBox text='sudo systemctl restart httpd' />
 
-#
-
-#### Ingresar a localhost/phpmyadmin y comprobar.
+### Ingresar a localhost/phpmyadmin y comprobar.
