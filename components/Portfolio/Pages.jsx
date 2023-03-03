@@ -1,12 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { SectionTitle } from '../SectionTitle'
 import { PagesData } from '@/data/PagesData'
 
 export const PagesCard = ({ title, imgUrl, pageUrl }) => {
     return (
-        <a
+        <Link
             href={pageUrl}
             target="_blank"
             rel="noreferrer"
@@ -23,7 +24,7 @@ export const PagesCard = ({ title, imgUrl, pageUrl }) => {
                     {title}
                 </h3>
             </div>
-        </a>
+        </Link>
     )
 }
 
