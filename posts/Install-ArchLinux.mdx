@@ -1,0 +1,158 @@
+---
+
+title: "Instalar Archlinux (EFI)"
+date: '2023-03-01'
+imgUrl: 'http://pillan.inf.uct.cl/~lrevillod/img/About/assets/Arch-Neofetch.png' 
+
+---
+# Instalar Archlinux / Gnome / GDM
+
+## Para configurar el teclado en Español durante la instalación:
+
+<CodeBox text='loadkeys es' />
+
+## Verificar conexión a internet:
+
+<CodeBox text='ping www.google.com' />
+
+## Crear particiones con cfdisk:
+
+<CodeBox text='fdisk -l' />
+<CodeBox text='cfdisk /dev/x' />
+
+## Esquema de particiones (Cfdisk):
+
+<CodeBox text='Aquí la imagen del esquema'/>
+
+## Formatear las particiones con su sistema de archivos:
+
+### Formatear /dev/x1 (boot)  
+
+<CodeBox text='mkfs.vfat -F32 /dev/x1'/>
+
+### Formatear /dev/x2 (/)
+
+<CodeBox text='mkfs.ext4 /dev/x2' />
+
+### Formatear /dev/x3 (swap)  
+
+<CodeBox text='mkswap /dev/x3' />   
+
+## Montar particiones:
+
+### Mount Root (/)
+
+<CodeBox text='mount /dev/x2 /mnt' /> 
+
+### Crear /boot - Crear /boot/efi - Montar /boot
+
+<CodeBox text='mkdir /mnt/boot' />
+<CodeBox text='mkdir /mnt/boot/efi' />
+<CodeBox text='mount /dev/x1 /mnt/boot/efi' />
+
+### Activar swap    
+
+<CodeBox text='swapon /dev/x3' />
+
+## Instalar kernel y paquetes base:
+
+### Actualizar repositorios oficiales:
+
+<CodeBox text='pacman -Sy archlinux-keyring' />
+
+### Instalar paquetes
+
+<CodeBox text='pacstrap /mnt linux linux-firmware base base-devel grub dhcpcd networkmanager netctl wpa_supplicant dialog efibootmgr' />
+
+## Generar fstab (File system table):
+
+<CodeBox text='genfstab /mnt >> /mnt/etc/fstab' />
+
+## Ingresar al sistema instalado:
+
+<CodeBox text='arch-chroot /mnt' />
+
+## Asignar hostname:
+
+<CodeBox text='echo PC-Name > /etc/hostname' />
+
+## Configurar localtime (Zona horaria):
+
+<CodeBox text='ln -sf /usr/share/zoneinfo/Continente/Capital /etc/localtime' />
+
+## Configurar reloj del sistema:
+
+<CodeBox text='hwclock -w' />
+
+## Instalar Grub:
+
+<CodeBox text="grub-install --efi-directory=/boot/efi --bootloader-id='Arch Linux' --target=x86_64-efi" />
+
+### Configurar Grub:
+
+<CodeBox text='grub-mkconfig -o /boot/grub/grub.cfg' />
+
+## Crer root password:
+
+<CodeBox text='passwd' />
+
+## Crear un usuario:
+
+<CodeBox text='useradd -m Username' />
+
+## Crear contraseña de usuario:
+
+<CodeBox text='passwd Username' /> 
+
+## Salir y desmontar particiones:
+
+<CodeBox text='exit' />
+
+<CodeBox text='umount -R /mnt' />
+
+<CodeBox text='reboot' />
+
+## Una vez reiniciado acceder con el usuario y contraseña creadas.
+
+##  Iniciar como superusuario
+
+<CodeBox text='su' />
+ 
+## Activar e iniciar NetworkManager:
+   
+<CodeBox text='systemctl start NetworkManager' />
+
+<CodeBox text='systemctl enable NetworkManager' />
+
+## Verificar conexión a internet
+
+<CodeBox text='ping www.google.com' />
+
+## Instalar Xorg:
+
+<CodeBox text='pacman -S xorg-server xorg-xinit' />
+
+## Instalar video drivers:
+
+### Intel - amd - nvidia - generic
+
+<CodeBox text='pacman -S xf86-video-intel intel-ucode' />
+<CodeBox text='pacman -S xf86-video-amdgpu' />
+<CodeBox text='pacman -S xf86-video-nouveau ' />
+<CodeBox text='pacman -S mesa' />
+
+## Instalar Gnome Desktop Environment:
+
+<CodeBox text='pacman -S gnome' />
+
+## Instalar Display Manager/Session manager:
+
+<CodeBox text='pacman -S gdm' />
+<CodeBox text='systemctl enable gdm' />
+
+## Reiniciar el sistema:
+
+<CodeBox text='reboot' />
+
+
+  

@@ -1,0 +1,141 @@
+---
+
+title: "Personalización: Gnomintosh"
+date: '2023-03-03'
+imgUrl: 'http://pillan.inf.uct.cl/~lrevillod/img/About/assets/Finder.png'
+
+---
+
+# Linux / Gnome como Mac OS de la forma más simple
+
+<LargeImage 
+    imgRef=''
+    imgSrc='http://pillan.inf.uct.cl/~lrevillod/img/About/assets/Gnomintosh-bg.png'
+    text=''
+/>
+
+## Whitesur GTK Theme
+
+### Clonar repositorio
+
+<CodeBox text='git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git' />
+
+<CodeBox text='cd WhiteSur-gtk-theme' />
+
+### Instalar tema base en el sistema:
+
+<CodeBox text='./install.sh' />
+ 
+### Activar compatibilidad con Flatpak y libadwaita:
+
+<CodeBox text='./install.sh -l   ' />
+ 
+<CodeBox text='./tweaks.sh -F' />
+ 
+<CodeBox text='sudo flatpak override --filesystem=xdg-config/gtk-4.0' />
+
+### Instalar tema en firefox:
+
+<CodeBox text='./tweaks.sh -f alt' />
+
+## Whitesur GTK Icons
+
+### Clonar repositorio
+
+<CodeBox text='git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git' />
+
+<CodeBox text='cd WhiteSur-icon-theme' />
+
+### Instalar iconos globales
+
+<CodeBox text='./install.sh' />
+ 
+### Instalar iconos del so estilo Bold 
+
+<CodeBox text='./install.sh -b' />
+
+## Whitesur GTK Cursors
+
+### Clonar repositorio
+
+<CodeBox text='git clone https://github.com/vinceliuice/WhiteSur-cursors.git' />
+
+<CodeBox text='cd WhiteSur-cursors' />
+ 
+### Instalar Cursores
+
+<CodeBox text='./install.sh' />
+ 
+### Reinicia el so
+
+<CodeBox text='reboot' />
+
+<div className='py-5'></div>
+
+## Gnome Tweaks 
+
+### Selecciona los temas instalados en la aplicación de tweaks
+
+<div className='py-5'></div>
+
+## Extensiones de Gnome
+
+
+<LargeImage 
+    imgRef='https://github.com/MrRevillod/Gnomintosh' 
+    imgSrc='http://pillan.inf.uct.cl/~lrevillod/img/About/assets/macos-neofetch.jpg'
+    title='Gnomintosh extensions and fonts'
+/>
+
+## Referencias
+
+<div className="pt-8 pb-12">
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+        <ReferenceCard 
+            title='Whitesur GTK Theme' 
+            author='Vincelluice' 
+            urlRef='https://github.com/vinceliuice/WhiteSur-icon-theme' 
+            imgUrl='http://pillan.inf.uct.cl/~lrevillod/img/About/assets/Whitesur-GTK-Theme.png'  
+        />
+
+        <ReferenceCard 
+            title='Whitesur GTK Icons' 
+            author='Vincelluice' 
+            urlRef='https://github.com/vinceliuice/WhiteSur-gtk-theme' 
+            imgUrl='http://pillan.inf.uct.cl/~lrevillod/img/About/assets/Whitesur-GTK-Icons.png'  
+        />
+
+	</div>
+</div>
+
+## Extensiones destacadas
+
+<div className="pt-8 pb-12">
+
+    <div className="flex flex-col gap-5 md:flex-row">
+
+        <ReferenceCard 
+            title='Blur my shell' 
+            author='aunetx' 
+            urlRef='https://github.com/aunetx/blur-my-shell' 
+            imgUrl='https://user-images.githubusercontent.com/38633812/116588850-779beb80-a935-11eb-8f2f-81bcd46fe694.png'  
+        />
+
+        <ReferenceCard 
+            title='Fildem Global Menu' 
+            author='Weather-OS (Fork)' 
+            urlRef='https://github.com/Weather-OS/Fildem-v2' 
+            imgUrl='https://user-images.githubusercontent.com/19943481/95288612-1d272a80-083f-11eb-9400-be88f61e054d.png'  
+        />
+
+        <ReferenceCard 
+            title='Just Perfection' 
+            author='Javad Rahmatzadeh' 
+            urlRef='https://gitlab.gnome.org/jrahmatzadeh/just-perfection' 
+            imgUrl='https://linuxiac.b-cdn.net/wp-content/uploads/2022/03/just-perfection-extension.png'  
+        />
+
+	</div>
+</div>

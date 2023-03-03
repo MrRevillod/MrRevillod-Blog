@@ -1,0 +1,147 @@
+---
+
+title: "Instalar LAMP STACK"
+date: '2023-03-01'
+imgUrl: 'http://pillan.inf.uct.cl/~lrevillod/img/About/assets/LAMP-STACK.png'
+
+---
+
+## Instalar LAMP stack en Archlinux (Apache - MariaDB - PHP)
+
+#### Instalar Servidor Apache
+```
+$ sudo pacman -S apache 
+```
+
+#### Activar e iniciar servicio
+
+``` 
+$ sudo systemctl start httpd 
+$ sudo systemctl enable httpd
+$ sudo systemctl status httpd
+```
+
+#### Instalar Lenguaje de programación PHP
+
+```
+$ sudo pacman -S php php-apache
+```
+
+#### Instalar Servicio de Bases de datos MySQL / MariaDB
+
+```
+$ sudo pacman -S mysql
+```
+
+#### Activar e iniciar servicio
+
+``` 
+$ sudo systemctl start mysqld 
+$ sudo systemctl enable mysqld
+$ sudo systemctl status mysqld
+```
+
+#### Por cualquier error en MariaDB ejecutar los siguentes comandos como superusuario
+
+```
+# cd /var/lib/mysql
+# rm -r *
+# mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+
+$ sudo systemctl restart mysqld
+$ sudo systemctl enable mysqld
+$ sudo systemctl status mysqld
+```
+
+#### Configuración segura de MariaDB
+
+```
+$ sudo mysql_secure_installation
+$ mysql -u root -p
+```
+
+#### Configurar Servidor Apache con MariaDB y PHP
+
+```$ sudo nano /etc/httpd/conf/httpd.conf```
+
+Descomentar las linea:
+```
+LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+```
+
+Comentar la linea 
+``` 
+LoadModule mpm_event_module modules/mod_mpm_event.so
+```
+
+Añadir el siguente bloque de texto al final del archivo
+```
+LoadModule php_module modules/libphp.so
+AddHandler php-script php
+Include conf/extra/php_module.conf
+```
+
+#### Reiniciar Servidor Apache 
+```
+$ sudo systemctl restart httpd
+```
+
+#### Testear estado del servidor mediante phpinfo();
+
+Crear archivo php mediante editor nano
+
+```
+$ sudo nano /srv/http/test.php
+```
+
+Agregar el siguente código php en el archivo
+```
+<?php
+phpinfo()
+?>
+```
+Probar estado del servidor accediendo a localhost/test.php
+
+#### Instalación de gestor de bases de datos phpMyAdmin
+
+```
+$ sudo pacman -S phpmyadmin
+```
+
+#### Actualizar configuracion de PHP y sus extensiones
+Descomentar las opciones: **extension=mysqld** y **extension=pdo_mysql**
+
+```
+$ sudo nano /etc/php/php.ini
+``` 
+
+#### Crear archivo de configuración de phpMyAdmin
+Añadir el texto en el archivo
+
+```
+$ sudo nano /etc/httpd/conf/extra/phpmyadmin.conf
+----------------------------------------------------
+Alias /phpmyadmin "/usr/share/webapps/phpMyAdmin"
+<Directory "/usr/share/webapps/phpMyAdmin">
+	DirectoryIndex  index.php
+    AllowOverride All
+    Options FollowSymlinks
+    Require all granted
+</Directory>
+
+```
+
+#### Actualizar configuración de Apache
+Añadir el texto al final del archivo
+
+```
+$ sudo nano /etc/httpd/conf/httpd.conf
+--------------------------------------
+Include conf/extra/phpmyadmin.conf
+--------------------------------------
+Reiniciar Apache
+$ sudo systemctl restart httpd
+```
+#
+
+#### Ingresar a localhost/phpmyadmin y comprobar.
