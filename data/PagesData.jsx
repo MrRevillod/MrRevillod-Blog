@@ -3,7 +3,7 @@ export const PagesData = [
     {
         title: 'Mr. Revillod Blog',
         imgUrl: 'https://raw.githubusercontent.com/MrRevillod/mrrevillod.github.io/main-tailwind/src/images/vscodeimg.png',
-        pageUrl: '/pages/blog',
+        pageUrl: '/blog',
     },
     {
         title: "Github profile",
