@@ -6,7 +6,8 @@ const nextConfig = {
       'user-images.githubusercontent.com',
       'pillan.inf.uct.cl',
       'extensions.gnome.org',
-      'linuxiac.b-cdn.net'
+      'linuxiac.b-cdn.net',
+      'forum.manjaro.org'
     ],
   },
 };

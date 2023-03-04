@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-export const LargeImage = ({ imgRef, imgSrc, title }) => {
+export const LargeImage = ({ imgRef, imgSrc, title, customClass }) => {
     return (
         <div className="pt-4 pb-12 w-full">
             <div className="flex flex-row md:flex-col gap-5 w-full">
@@ -13,7 +13,7 @@ export const LargeImage = ({ imgRef, imgSrc, title }) => {
                     <Image
                         key={title}
                         alt="img"
-                        className="w-full h-36 md:h-48 object-cover"
+                        className='w-full h-36 md:h-48 object-cover'
                         src={imgSrc}
                         width={1000}
                         height={1000}
