@@ -7,7 +7,9 @@ const nextConfig = {
       'pillan.inf.uct.cl',
       'extensions.gnome.org',
       'linuxiac.b-cdn.net',
-      'forum.manjaro.org'
+      'forum.manjaro.org',
+      'camo.githubusercontent.com',
+      'wiki.manjaro.org'
     ],
   },
 };

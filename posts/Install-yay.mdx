@@ -1,0 +1,29 @@
+---
+
+title: "Instalar yay (AUR Helper)"
+date: '2023-03-05'
+imgUrl: 'https://camo.githubusercontent.com/7fbc27490861628b6ac9f217f97f701b8af80915fe93b4d9a6e0ff17817ed903/68747470733a2f2f72617763646e2e6769746861636b2e636f6d2f4a677565722f6a677565722e6769746875622e696f2f373736343766333936636237313536666433326533303937306462656166366436646337663938332f7961792f7961792e706e67'
+
+---
+
+# Instalar asistente de paquetes aur yay
+
+<LargeImage 
+    imgRef='' 
+    imgSrc='https://camo.githubusercontent.com/7fbc27490861628b6ac9f217f97f701b8af80915fe93b4d9a6e0ff17817ed903/68747470733a2f2f72617763646e2e6769746861636b2e636f6d2f4a677565722f6a677565722e6769746875622e696f2f373736343766333936636237313536666433326533303937306462656166366436646337663938332f7961792f7961792e706e67'
+    title=''
+/>
+
+## Antes de instalar yay asegurarse de poseer los paquetes de compilación base
+
+<CodeBox text='sudo pacman -S base-devel' />
+
+## Clonar el repositorio oficial de yay
+
+<CodeBox text='git clone https://aur.archlinux.org/yay.git' />
+
+## Compilar e instalar yay
+
+<CodeBox text='cd yay' />
+
+<CodeBox text='makepkg -si' />

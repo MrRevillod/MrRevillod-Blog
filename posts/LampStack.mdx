@@ -1,6 +1,6 @@
 ---
 
-title: "Instalar LAMP STACK"
+title: "Instalar LAMP STACK en Arch Linux"
 date: '2023-03-01'
 imgUrl: 'http://pillan.inf.uct.cl/~lrevillod/img/About/assets/LAMP-STACK.png'
 
@@ -107,18 +107,17 @@ Descomentar las opciones: **extension=mysqld** y **extension=pdo_mysql**
 
 Añadir el texto en el archivo
 
-```
-
-----------------------------------------------------
-Alias /phpmyadmin "/usr/share/webapps/phpMyAdmin"
-<Directory "/usr/share/webapps/phpMyAdmin">
-	DirectoryIndex  index.php
-    AllowOverride All
-    Options FollowSymlinks
-    Require all granted
-</Directory>
-
-```
+<CodeBox 
+    text='
+        Alias /phpmyadmin "/usr/share/webapps/phpMyAdmin"
+        <Directory "/usr/share/webapps/phpMyAdmin">
+            DirectoryIndex  index.php
+            AllowOverride All
+            Options FollowSymlinks
+            Require all granted
+        </Directory>
+    '
+/>
 
 ### Actualizar configuración de Apache
 <CodeBox text='sudo nano /etc/httpd/conf/httpd.conf' />
