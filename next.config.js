@@ -9,7 +9,8 @@ const nextConfig = {
       'linuxiac.b-cdn.net',
       'forum.manjaro.org',
       'camo.githubusercontent.com',
-      'wiki.manjaro.org'
+      'wiki.manjaro.org',
+      'www.muylinux.com'
     ],
   },
 };

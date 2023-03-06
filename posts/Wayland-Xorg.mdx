@@ -1,0 +1,18 @@
+---
+
+title: "Cambiar Wayland por Xorg en Gnome"
+date: '2023-03-01'
+imgUrl: 'https://www.muylinux.com/wp-content/uploads/2021/12/Wayland-Vs-Xorg.png'
+
+---
+
+# Cambiar Wayland por Xorg en Gnome
+
+
+## Aceeder al fichero de configuración de gdm
+
+<CodeBox text='sudo nano /etc/gdm/custom.conf' />
+
+## Si la linea "WaylandEnable=true" está comentada. Desomentala y cambia el valor a falso.
+
+<CodeBox text='"WaylandEnable=false"'/>
