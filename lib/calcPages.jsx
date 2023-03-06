@@ -7,3 +7,6 @@ export const calcPages = (data, numPerPage) => {
 
     return maxPages
 }
+
+export const getPaginatedData = (data, page, numPerPage) =>
+    data.slice((page - 1) * numPerPage, (page - 1) * numPerPage + numPerPage)

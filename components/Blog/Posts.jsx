@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 
-import { calcPages } from '@/lib/calcPages'
+import { calcPages, getPaginatedData } from '@/lib/calcPages'
 
 import { PagesBar } from '../PagesBar'
 import { PostCard } from './PostCard'
+
 
 export const Posts = ({ posts }) => {
 
@@ -11,15 +12,14 @@ export const Posts = ({ posts }) => {
 	const [numPerPage, setNumPerPage] = useState(4)
 
 	const maxPages = calcPages(posts, numPerPage)
-	const dataSlice = posts.slice((page - 1) * numPerPage, (page - 1) * numPerPage + numPerPage)
+	const data = getPaginatedData(posts, page, numPerPage)
 
 	return (
 		<div className="pt-4 pb-4">
 
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-				{dataSlice.map(({ title, date, slug, imgUrl }) => (
-
+				{data.map(({ title, date, slug, imgUrl }) => (
 					<PostCard
 						key={slug}
 						title={title}
@@ -27,16 +27,16 @@ export const Posts = ({ posts }) => {
 						imgUrl={imgUrl}
 						date={date}
 					/>
-
 				))}
 
 			</div>
 
-			<PagesBar page={page}
+			<PagesBar
+				page={page}
 				setPage={setPage}
 				maxOfTabs={maxPages}
-				prevImg='http://pillan.inf.uct.cl/~lrevillod/img/About/assets/icons/chevron-left.png'
-				nextImg='http://pillan.inf.uct.cl/~lrevillod/img/About/assets/icons/chevron-right.png'
+				prevImg="http://pillan.inf.uct.cl/~lrevillod/img/About/assets/icons/chevron-left.png"
+				nextImg="http://pillan.inf.uct.cl/~lrevillod/img/About/assets/icons/chevron-right.png"
 			/>
 
 		</div>
