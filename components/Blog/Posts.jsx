@@ -35,8 +35,8 @@ export const Posts = ({ posts }) => {
 			<PagesBar page={page}
 				setPage={setPage}
 				maxOfTabs={maxPages}
-				prevImg='ldaskjd'
-				nextImg='asdlkasdkj'
+				prevImg='http://pillan.inf.uct.cl/~lrevillod/img/About/assets/icons/chevron-left.png'
+				nextImg='http://pillan.inf.uct.cl/~lrevillod/img/About/assets/icons/chevron-right.png'
 			/>
 
 		</div>

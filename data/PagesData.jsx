@@ -2,12 +2,12 @@
 export const PagesData = [
     {
         title: 'Mr. Revillod Blog',
-        imgUrl: 'https://raw.githubusercontent.com/MrRevillod/mrrevillod.github.io/main-tailwind/src/images/vscodeimg.png',
+        imgUrl: 'http://pillan.inf.uct.cl/~lrevillod/img/About/assets/posts/Blog-img.png',
         pageUrl: '/blog',
     },
     {
         title: "Github profile",
-        imgUrl: 'https://raw.githubusercontent.com/MrRevillod/mrrevillod.github.io/main-tailwind/src/images/GithubProfile.png',
+        imgUrl: 'http://pillan.inf.uct.cl/~lrevillod/img/About/assets/posts/Github-profile.png',
         pageUrl: 'https://github.com/MrRevillod',
     }
 ]
