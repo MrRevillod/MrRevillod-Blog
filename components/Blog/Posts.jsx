@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { calcMaxOfTabs } from '@/lib/calcMaxTabs'
+import { calcPages } from '@/lib/calcPages'
 
 import { PagesBar } from '../PagesBar'
 import { PostCard } from './PostCard'
@@ -10,7 +10,7 @@ export const Posts = ({ posts }) => {
 	const [page, setPage] = useState(1)
 	const [numPerPage, setNumPerPage] = useState(4)
 
-	const maxOfTabs = calcMaxOfTabs(posts, numPerPage)
+	const maxPages = calcPages(posts, numPerPage)
 	const dataSlice = posts.slice((page - 1) * numPerPage, (page - 1) * numPerPage + numPerPage)
 
 	return (
@@ -34,7 +34,7 @@ export const Posts = ({ posts }) => {
 
 			<PagesBar page={page}
 				setPage={setPage}
-				maxOfTabs={maxOfTabs}
+				maxOfTabs={maxPages}
 				prevImg='ldaskjd'
 				nextImg='asdlkasdkj'
 			/>
