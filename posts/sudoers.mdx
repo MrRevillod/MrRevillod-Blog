@@ -1,0 +1,32 @@
+---
+
+title: "Añadir tu usuario al fichero sudoers"
+date: '2023-03-06'
+imgUrl: 'http://pillan.inf.uct.cl/~lrevillod/img/About/assets/posts/Sudoers-img.jpg'
+
+---
+
+# Añadir usuarios al grupo root con el comando visudo
+
+## Accede al sistema como super usuario
+
+<CodeBox text='su' />
+
+## Ingresa al fichero de configuracion sudoers
+
+<CodeBox text='visudo' />
+
+## Identifica la siguente linea
+
+<CodeBox text='root ALL=(ALL:ALL) ALL' />
+
+## Añade tu nombre de usuario junto con los respectivos permisos justo debajo
+
+### Ejemplo
+
+<CodeBox text='username ALL=(ALL:ALL) ALL' />
+
+## Guarda los cambios con el siguente comando
+
+<CodeBox text=':wq' />
+
