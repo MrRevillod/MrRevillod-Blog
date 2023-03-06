@@ -23,7 +23,7 @@ export const CodeBox = ({ text }) => {
             <div className="absolute top-3.5 right-3 cursor-pointer" onClick={handleCopy}>
                 <div className="max-w-full">
                     <Image
-                        src="http://pillan.inf.uct.cl/~lrevillod/img/About/assets/icons/copiar_img.png"
+                        src="http://pillan.inf.uct.cl/~lrevillod/Blog/assets/icons/copiar_img.png"
                         alt="Copy to clipboard"
                         width={24}
                         height={24}

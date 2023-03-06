@@ -35,8 +35,8 @@ export const Posts = ({ posts }) => {
 				page={page}
 				setPage={setPage}
 				maxOfTabs={maxPages}
-				prevImg="http://pillan.inf.uct.cl/~lrevillod/img/About/assets/icons/chevron-left.png"
-				nextImg="http://pillan.inf.uct.cl/~lrevillod/img/About/assets/icons/chevron-right.png"
+				prevImg="http://pillan.inf.uct.cl/~lrevillod/Blog/assets/icons/chevron-left.png"
+				nextImg="http://pillan.inf.uct.cl/~lrevillod/Blog/assets/icons/chevron-right.png"
 			/>
 
 		</div>
