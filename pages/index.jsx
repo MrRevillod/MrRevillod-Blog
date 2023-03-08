@@ -19,7 +19,7 @@ export default function Home() {
 			<main className='min-h-screen font-inter bg-zinc-900'>
 				<div className="max-w-5xl w-11/12 mx-auto">
 
-					<PageTitle title={"Hi, I'm Luciano Revillod"} />
+					<PageTitle title="Hi, I'm Luciano Revillod" customClass='my-20' />
 					<About />
 					<Skills />
 					<Pages />

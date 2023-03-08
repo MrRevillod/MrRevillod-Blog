@@ -24,7 +24,7 @@ export const Posts = ({ posts }) => {
 		<div className="pt-4 pb-4">
 
 			<div className='flex md:flex-row flex-col w-full my-11 md:gap-0 gap-8'>
-				<PageTitle title='Mr. Revillod Blog' />
+				<PageTitle title='Mr. Revillod Blog' customClass='my-0 mx-0' />
 				<SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 			</div>
 

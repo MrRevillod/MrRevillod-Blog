@@ -5,11 +5,11 @@ import Link from 'next/link'
 import { SectionTitle } from '../SectionTitle'
 import { PagesData } from '@/data/PagesData'
 
-export const PagesCard = ({ title, imgUrl, pageUrl }) => {
+export const PagesCard = ({ title, imgUrl, pageUrl, targetLink }) => {
     return (
         <Link
             href={pageUrl}
-            target="_blank"
+            target={targetLink}
             rel="noreferrer"
             className="bg-zinc-800 rounded-lg overflow-hidden"
         >
@@ -41,6 +41,7 @@ export const Pages = () => {
                         imgUrl={page.imgUrl}
                         title={page.title}
                         pageUrl={page.pageUrl}
+                        targetLink={page.targetLink}
                     />
                 ))}
             </div>
