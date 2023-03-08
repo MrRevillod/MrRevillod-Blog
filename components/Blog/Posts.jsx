@@ -2,20 +2,27 @@ import React, { useState } from 'react'
 
 import { calcPages, getPaginatedData } from '@/lib/calcPages'
 
-import { PagesBar } from '../PagesBar'
+import { PagesBar } from './PagesBar'
 import { PostCard } from './PostCard'
+import { SearchBar } from './SearchBar'
 
 
 export const Posts = ({ posts }) => {
 
 	const [page, setPage] = useState(1)
 	const [numPerPage, setNumPerPage] = useState(4)
+	const [searchTerm, setSearchTerm] = useState('');
 
-	const maxPages = calcPages(posts, numPerPage)
-	const data = getPaginatedData(posts, page, numPerPage)
+	const filteredPosts = posts.filter((post) =>
+		post.title.toLowerCase().includes(searchTerm.toLowerCase())
+	);
+	const maxPages = calcPages(filteredPosts, numPerPage);
+	const data = getPaginatedData(filteredPosts, page, numPerPage);
 
 	return (
 		<div className="pt-4 pb-4">
+
+			<SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
