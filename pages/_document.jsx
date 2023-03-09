@@ -5,7 +5,7 @@ export default function MyDocument() {
 		<Html lang="en">
 			<Head>
 
-				<link rel="icon" href="/public/Terminal-favicon.png" />
+				<link rel="icon" href="../public/Terminal-favicon.png" />
 
 				{/* <a target="_blank" href="https://icons8.com/icon/1JOOtg5aq3Ek/chevron">chevron</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> */}
 				{/* <a target="_blank" href="https://icons8.com/icon/DydnsatR799b/chevron">chevron</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> */}
