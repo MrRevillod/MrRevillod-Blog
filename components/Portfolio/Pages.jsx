@@ -13,10 +13,12 @@ export const PagesCard = ({ title, imgUrl, pageUrl, targetLink }) => {
             rel="noreferrer"
             className="bg-zinc-800 rounded-lg overflow-hidden"
         >
-            <img
+            <Image
                 src={imgUrl}
                 alt="work"
                 className="w-full h-36 md:h-48 object-cover"
+                width={1000}
+                height={1000}
             />
 
             <div className="w-full p-5 text-gray-300 ">
